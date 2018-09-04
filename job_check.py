@@ -53,4 +53,4 @@ def parse_content():
                   "Job Location: {}\n"
                   "URL to job: {}\n".format(title, job_cat, job_level, job_location, job_url))
 
-
+parse_content()
