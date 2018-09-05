@@ -1,9 +1,9 @@
 import requests
 from scrapy.selector import Selector
 
-
 def make_request():
     """Makes request with given parameters for search and returns content"""
+
     key = "" #Enter any keywords for your cron/scheduled task
     loc = "" #Enter city and state abbreviation (city, ..) for the cron/scheduled task
     loc_dist = "" #Enter any distance parameters (in miles)
@@ -29,6 +29,9 @@ def make_request():
     return req.content
 
 def parse_content():
+    """ Initializes content variable from make_request function and verifies if jobs are available,
+        if so, the parses through content and return information """
+
     content = make_request()
     not_avail = Selector(text=content).xpath("//div[@class='warning no-results']")
     if not_avail:
